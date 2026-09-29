@@ -6,6 +6,7 @@
     "dev": "vite",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "build": "vite build"
   },
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@app/api": "workspace:*",
     "@solidjs/testing-library": "^0.8.10",
+    "@vitest/coverage-v8": "^5.0.2",
     "happy-dom": "^20.14.5",
     "vite": "^8.3.1",
     "vite-plugin-solid": "^2.11.14",
