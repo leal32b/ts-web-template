@@ -1,0 +1,17 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: "*.{js,ts,tsx,json,css,md,yml,yaml}"
+      run: pnpm exec biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+    vitest-api:
+      root: "apps/api/"
+      glob: "apps/api/**/*.{ts,tsx}"
+      run: pnpm exec vitest related --run {staged_files}
+
+    vitest-web:
+      root: "apps/web/"
+      glob: "apps/web/**/*.{ts,tsx}"
+      run: pnpm exec vitest related --run {staged_files}

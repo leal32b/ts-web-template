@@ -1,0 +1,8 @@
+{
+  "app": {
+    "title": "Greeting"
+  },
+  "errors": {
+    "unexpected": "Something went wrong. Try again."
+  }
+}

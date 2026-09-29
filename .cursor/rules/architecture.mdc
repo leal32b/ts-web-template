@@ -1,0 +1,24 @@
+---
+description: Architecture boundaries for the API and the web app
+alwaysApply: true
+---
+
+# Architecture
+
+Keep the template small. Add a folder only when it has a responsibility today.
+
+- Backend flow is `http` → `application` → `domain`. Domain code must not import `http` or `application`.
+- Do not add a database, ORM, auth, queues, cache, or a web framework.
+- Do not create `packages/` until two apps import the same module. Do not create `infra/` until there is real infrastructure.
+- Frontend layers in use: `app`, `pages`, `features`, `shared`. Skip empty Feature-Sliced layers.
+- Import a feature or page from its `index.ts`, not from its internals.
+- API JSON returns data. Failures return `{ "code": "STABLE_CODE" }` and no translated message.
+- The greeting tracer is the example of the architecture, not a product surface to grow in place.
+
+```ts
+// Good: the use case depends on the domain only.
+import { parseName } from "../domain/name.ts";
+
+// Bad: the domain learns about HTTP.
+import { createAppServer } from "../http/server.ts";
+```

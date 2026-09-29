@@ -1,0 +1,32 @@
+---
+description: SolidJS, Feature-Sliced Design, and i18n
+globs: apps/web/**/*.{ts,tsx,css,json}
+alwaysApply: false
+---
+
+# Frontend
+
+Build UI with SolidJS, Vite, and the Feature-Sliced slices that already exist. Style with `app.css`. Do not add Kobalte or UnoCSS until HTML and that stylesheet cannot do the job.
+
+## i18n
+
+Never hardcode user-visible strings in components, pages, or features. That includes `aria-label`, `title`, `alt`, and placeholders.
+
+- Locale files: `src/shared/locales/en/<namespace>.json`.
+- Namespaces follow UI domains (`common`, `greeting`), not components.
+- Keys are stable identifiers (`greeting.submit`), not English sentences.
+- Interpolate with `{{name}}`. Do not concatenate translated fragments.
+- Call `const [t] = useTranslation("greeting")` from `solid-i18next`. Do not wrap i18next.
+- Map API error codes to keys. Do not render a message returned by the API.
+
+```tsx
+const [t] = useTranslation("greeting");
+return <h1>{t("title", { ns: "greeting" })}</h1>;
+```
+
+```tsx
+// Bad
+return <h1>Say hello</h1>;
+```
+
+Tests render the default English copy with happy-dom. Do not test i18next itself.

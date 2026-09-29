@@ -1,0 +1,30 @@
+---
+description: Documentation language, ADRs, and plans
+alwaysApply: true
+---
+
+# Documentation
+
+Write repository files in English: code, comments, docs, ADRs, plans, and log messages.
+
+Update the README when commands, setup, or the public structure change.
+
+Write an ADR only for a decision a newcomer could reasonably take the other way. Do not write an ADR for a rule this repository already mandates.
+
+ADRs live in `docs/adr/NNNN-decision-name.md` and use these sections: Status, Context, Decision, Consequences.
+
+Plans live in `docs/plans/` and record objective, context, scope, non-scope, steps, risks, and validation.
+
+```markdown
+# Title
+
+## Status
+
+Accepted
+
+## Context
+
+## Decision
+
+## Consequences
+```
