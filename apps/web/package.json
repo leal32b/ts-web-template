@@ -1,0 +1,25 @@
+{
+  "name": "@app/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "i18next": "^26.4.2",
+    "solid-i18next": "0.0.5",
+    "solid-js": "^1.9.15"
+  },
+  "devDependencies": {
+    "@app/api": "workspace:*",
+    "@solidjs/testing-library": "^0.8.10",
+    "happy-dom": "^20.14.5",
+    "vite": "^8.3.1",
+    "vite-plugin-solid": "^2.11.14",
+    "vitest": "^5.0.2"
+  }
+}

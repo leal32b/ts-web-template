@@ -1,0 +1,23 @@
+---
+description: Simplicity, dependencies, and formatting
+alwaysApply: true
+---
+
+# Code quality
+
+Prefer, in order: simplicity, clarity, correctness, maintainability, performance, extensibility.
+
+- Do not add a dependency until the platform, TypeScript, and a small local function are not enough. Document any extra dependency in the README.
+- Biome formats, lints, and organizes imports. Do not add ESLint or Prettier.
+- Do not add wrappers, generic repositories, service layers, dependency-injection containers, or event buses without a concrete caller.
+- Keep secrets out of git. Copy `.env.example` to `.env`. Do not commit `.env`.
+- Use TypeScript 7 through the `tsc` CLI. Do not import the TypeScript programmatic API.
+- Keep Node on 24 (`engines` and `.nvmrc`).
+
+```ts
+// Good: a local parse with a stable code.
+if (value.length === 0) throw new InvalidNameError("GREETING_NAME_REQUIRED");
+
+// Bad: a validation library for one string check.
+import { z } from "zod";
+```

@@ -1,0 +1,13 @@
+{
+  "title": "Say hello",
+  "name": {
+    "label": "Name",
+    "placeholder": "Ada"
+  },
+  "submit": "Greet",
+  "result": "Hello, {{name}}.",
+  "errors": {
+    "nameRequired": "Enter a name.",
+    "nameTooLong": "Use at most 40 characters."
+  }
+}

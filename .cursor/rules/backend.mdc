@@ -1,0 +1,23 @@
+---
+description: Backend boundaries, HTTP, and tests
+globs: apps/api/**/*.ts
+alwaysApply: false
+---
+
+# Backend
+
+Use `node:http` and Node's type stripping. Relative imports include the `.ts` extension.
+
+- Validate `PORT` in `loadConfig` before listening.
+- Map domain errors to HTTP status and a stable `code`. Do not put localized text in the body.
+- Read request bodies with a small size limit.
+- Log unexpected failures on the server. Respond with `{ "code": "UNEXPECTED" }` and no stack trace.
+- Unit-test domain and use cases. Integration-test HTTP with `fetch` against `listen(0)`.
+
+```ts
+// Good
+sendJson(response, 400, { code: error.code });
+
+// Bad
+sendJson(response, 400, { message: "Name is required" });
+```

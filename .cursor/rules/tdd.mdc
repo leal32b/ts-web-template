@@ -1,0 +1,25 @@
+---
+description: Test-driven development is the default workflow
+alwaysApply: true
+---
+
+# TDD
+
+For new behavior, follow red, green, refactor before the next behavior.
+
+1. Write the smallest test that states the behavior.
+2. Run it and confirm it fails.
+3. Write the smallest code that makes it pass.
+4. Run it and confirm it passes.
+5. Refactor while the tests stay green.
+
+Put tests beside the code: `name.test.ts` next to `name.ts`. Backend tests use Vitest in Node. Frontend tests use Vitest and happy-dom.
+
+Skip this cycle only when the user explicitly says to ignore TDD for the current task.
+
+```ts
+// Good: one behavior, asserted before the production code exists.
+it("rejects a blank name", () => {
+  expect(() => parseName("  ")).toThrow(InvalidNameError);
+});
+```
