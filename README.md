@@ -27,7 +27,7 @@ Kobalte and UnoCSS are allowed later, when a screen needs them. They are not ins
 pnpm install
 ```
 
-The `prepare` script installs the Lefthook pre-commit hook. The hook runs Biome on staged files. Typecheck, tests, and build run in CI so the hook stays fast.
+The `prepare` script installs the Lefthook pre-commit hook. The hook runs Biome on staged files and Vitest related tests for the app whose TypeScript files changed. Typecheck and build run in CI.
 
 ## Commands
 
